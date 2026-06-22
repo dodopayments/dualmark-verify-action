@@ -314,7 +314,7 @@ runs:
           | **Level check** | ${{ steps.check-level.outcome == 'success' && '✅ PASS' || '❌ FAIL' }} |
           | **Regression** | ${{ inputs.fail-on-regression != 'true' && '⏭️ Skipped' || (steps.check-regression.outcome == 'success' && '✅ PASS' || '❌ FAIL') }} |
 
-          <sub>Powered by <a href="https://dualmark.dev">Dualmark</a> • <a href="https://dualmark.dev/docs/spec/overview">AEO Specification v1.0</a> · Commit \`${{ github.sha }}\`</sub>
+          <sub>Powered by <a href="https://dualmark.dev">Dualmark</a> • <a href="https://dualmark.dev/docs/spec/overview">AEO Specification v1.0</a> · Commit \`${{ github.event.pull_request.head.sha || github.sha }}\`</sub>
 
     - name: Fail if checks failed
       # Only flag regression failure when fail-on-regression is true (otherwise skipped)
