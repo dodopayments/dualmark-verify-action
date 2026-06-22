@@ -108,9 +108,9 @@ runs:
         echo "::group::🔬 Running AEO verification"
         echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
         echo "  Target URL:  $TARGET_URL"
-        echo "  Executing:   bunx @dualmark/cli verify --json"
+        echo "  Executing:   bunx @dualmark/cli@0.10 verify --json"
         echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-        bunx @dualmark/cli verify "$TARGET_URL" --json > "${{ runner.temp }}/aeo.json" || true # failure handled by parse step
+        bunx @dualmark/cli@0.10 verify "$TARGET_URL" --json > "${{ runner.temp }}/aeo.json" || true # failure handled by parse step
         echo "::endgroup::"
 
     - name: Parse report
